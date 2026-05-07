@@ -26,3 +26,14 @@ function getHumanChoice() {
         return 'scissors';
     }
 }
+ // keeping scores
+ function humanScore(i) {
+    let i=0;
+    i++;
+
+ }
+ function computerScore(i) {
+    let i=0;
+    i++;
+ }
+ 
