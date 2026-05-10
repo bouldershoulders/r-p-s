@@ -11,29 +11,46 @@ function getComputerChoice() {
         return 'scissors';
     }
 }
-
-
 // getting human choice
 function getHumanChoice() {
-    let response = prompt(`what's your move   `)
-    if (response == 'rock') {
-        return 'rock';
-    }
-    else if (response == 'paper') {
-        return 'paper';
-    }
-    else if (response == 'scissors') {
-        return 'scissors';
+    return prompt('rock , paper or scissors ?')
+}
+// keeping scores
+let humanScore = 0;
+let computerScore =0;
+const beats = {
+    rock : 'scissors' ,
+    paper : 'rock' ,
+    scissors : 'paper', 
+}
+
+ 
+// to play one round 
+function playRound(humanChoice , computerChoice) {
+    getHumanChoice = getHumanChoice.toLowerCase().trim();
+    if (humanChoice === computerChoice) {
+        return "it's tie , you both choose the same thing";
+    } else if (beats[humanChoice] === computerChoice) {
+        humanScore++;
+        return "you win "
+    } else {
+        computerScore++;
+        return 'you lose';
     }
 }
- // keeping scores
- function humanScore(i) {
-    let i=0;
-    i++;
+let humanChoice = getHumanChoice()
+let computerChoice = getComputerChoice()
+function playGame() {
+    for (let i=0 ; i<5 ; i++ ) {
+        playRound(getHumanChoice , getComputerChoice);
+    }
+}
+if (humanScore < computerScore) {
+    console.log('you lost')
+} else if (humanScore > computerScore) {
+    console.log('you win')
+} else {console.log("it's draw")}
 
- }
- function computerScore(i) {
-    let i=0;
-    i++;
- }
- 
+
+
+
