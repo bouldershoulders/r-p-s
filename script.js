@@ -16,8 +16,7 @@ function getHumanChoice() {
     return prompt('rock , paper or scissors ?')
 }
 // keeping scores
-let humanScore = 0;
-let computerScore =0;
+
 const beats = {
     rock : 'scissors' ,
     paper : 'rock' ,
@@ -27,29 +26,33 @@ const beats = {
  
 // to play one round 
 function playRound(humanChoice , computerChoice) {
-    getHumanChoice = getHumanChoice.toLowerCase().trim();
+    let humanScore = 0;
+    let computerScore = 0;
+    humanChoice = humanChoice.toLowerCase().trim();
     if (humanChoice === computerChoice) {
         return "it's tie , you both choose the same thing";
     } else if (beats[humanChoice] === computerChoice) {
         humanScore++;
-        return "you win "
+        return `you win ${humanChoice} beats ${computerChoice}`
     } else {
         computerScore++;
-        return 'you lose';
+        return `you lose ${computerChoice} beats ${humanchoice}`;
     }
 }
-let humanChoice = getHumanChoice()
-let computerChoice = getComputerChoice()
+
 function playGame() {
+    let humanScore = 0;
+    let computerScore = 0;
     for (let i=0 ; i<5 ; i++ ) {
-        playRound(getHumanChoice , getComputerChoice);
+        console.log(playRound(getHumanChoice(), getComputerChoice()));
     }
+    if (humanScore < computerScore) {
+    console.log(`you lost by ${computerScore - humanScore} points.`)
+    } else if (humanScore > computerScore) {
+            console.log(`you win by ${humanScore -computerScore} points`);
+    } else {console.log("it's draw");}
 }
-if (humanScore < computerScore) {
-    console.log('you lost')
-} else if (humanScore > computerScore) {
-    console.log('you win')
-} else {console.log("it's draw")}
+playGame();
 
 
 
